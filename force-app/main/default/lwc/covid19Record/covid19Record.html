@@ -1,0 +1,78 @@
+<!--
+  @description       : 
+  @author            : Amit Kumar
+  @group             : 
+  @last modified on  : 06-22-2021
+  @last modified by  : Amit Kumar
+  Modifications Log 
+  Ver   Date         Author       Modification
+  1.0   06-22-2021   Amit Kumar   Initial Version
+-->
+<template>
+    <template if:false={countryRecord}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+    <template if:true={countryRecord}>
+        <lightning-accordion allow-multiple-sections-open>
+            <p class="slds-text-heading_medium"> Date of Report : {countryRecord.ReportDate}</p>
+            <lightning-accordion-section name="A" label="Cases">
+                <table>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Total Cases : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.TotalCases} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Cases/Million : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.OneMCases} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> New Cases : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.NewCases} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Active Cases : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.ActiveCases} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Critical Cases : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.CriticalCases} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Recovered Cases : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.RecoveredCases} </p> </td>
+                    </tr>
+                </table>
+            </lightning-accordion-section>
+    
+            <lightning-accordion-section name="B" label="Tests">
+                <table>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Total Tests : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.TotalTests} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Tests/Million : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.OneMTests} </p> </td>
+                    </tr>
+                </table>
+            </lightning-accordion-section>
+    
+            <lightning-accordion-section name="C" label="Deaths">
+                <table>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Total Deaths : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.TotalDeaths} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> Deaths/Million : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.OneMDeaths} </p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="slds-text-heading_small"> New Deaths : </p> </td>
+                        <td> <p class="slds-text-heading_small"> {countryRecord.NewDeaths} </p> </td>
+                    </tr>
+                </table>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </template>
+</template>

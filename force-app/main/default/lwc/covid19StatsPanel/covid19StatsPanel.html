@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : Amit Kumar
+  @group             : 
+  @last modified on  : 06-22-2021
+  @last modified by  : Amit Kumar
+  Modifications Log 
+  Ver   Date         Author       Modification
+  1.0   06-22-2021   Amit Kumar   Initial Version
+-->
+<template>
+  <div class="slds-box slds-var-p-around_medium">
+    <lightning-card title="Covid 19 Update" icon-name="custom:custom94">
+      <template if:false={isCountryAvailable}>
+        <lightning-layout multiple-rows="true">
+          <lightning-layout-item class="slds-var-p-around_xxx-small" size="12">
+            <lightning-combobox
+              name="progress"
+              variant="label-hidden"
+              label="Choose Country"
+              value={countryValue}
+              options={countryOptions}
+              onchange={handleCountryChange} ></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item class="slds-var-p-around_xxx-small" size="12">
+            <lightning-button variant="brand" label="Search" title="Search" onclick={handleSearchClick}></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item class="slds-var-p-around_xxx-small" size="12">
+            <template if:true={selectedCountryRecord}>
+              <c-covid19-record country-record={selectedCountryRecord}></c-covid19-record>
+            </template>
+          </lightning-layout-item>
+        </lightning-layout>
+      </template>
+      <template if:true={isCountryAvailable}>
+        <lightning-card title={selectedCountryType} class="slds-var-m-left_large slds-var-m-right_large">
+          <div slot="actions">
+            <lightning-input type="toggle" label={toggleLabel} name="input2" onclick={handleToggleClick}> </lightning-input>
+          </div>
+          <lightning-layout-item size="12">
+              <c-covid19-record country-record={selectedRecord}></c-covid19-record>
+          </lightning-layout-item>
+        </lightning-card>
+      </template>
+    </lightning-card>
+  </div>
+</template>
