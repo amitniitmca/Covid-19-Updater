@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Amit Kumar
  * @group             : 
- * @last modified on  : 06-28-2021
+ * @last modified on  : 06-30-2021
  * @last modified by  : Amit Kumar
  * Modifications Log 
  * Ver   Date         Author       Modification
@@ -23,22 +23,18 @@ public inherited sharing class Test_Covid19CalloutManager {
         Covid19StatisticsWrapper actualWrapper = new Covid19CalloutManager().getStatistics('India');
         Test.stopTest();
         System.assertEquals(expectedWrapper.parameters.country, actualWrapper.parameters.country, 'Parameter Country not matching!');
-        
         System.assertEquals(expectedWrapper.response[0].country, actualWrapper.response[0].country, 'Response Country not matching!');
         System.assertEquals(expectedWrapper.response[0].continent, actualWrapper.response[0].continent, 'Response Continent not matching!');
         System.assertEquals(expectedWrapper.response[0].day, actualWrapper.response[0].day, 'Response Day not matching!');
-        System.assertEquals(expectedWrapper.response[0].time_Z, actualWrapper.response[0].time_Z, 'Response Time Zone not matching!');
-        
+        System.assertEquals(expectedWrapper.response[0].time_Z, actualWrapper.response[0].time_Z, 'Response Time Zone not matching!'); 
         System.assertEquals(expectedWrapper.response[0].cases.OneM_pop, actualWrapper.response[0].cases.OneM_pop, 'Cases per one million not matching!');
         System.assertEquals(expectedWrapper.response[0].cases.active, actualWrapper.response[0].cases.active, 'Cases active not matching!');
         System.assertEquals(expectedWrapper.response[0].cases.critical, actualWrapper.response[0].cases.critical, 'Cases critical not matching!');
         System.assertEquals(expectedWrapper.response[0].cases.new_Z, actualWrapper.response[0].cases.new_Z, 'Cases new matching!');
         System.assertEquals(expectedWrapper.response[0].cases.recovered, actualWrapper.response[0].cases.recovered, 'Cases recovered not matching!');
         System.assertEquals(expectedWrapper.response[0].cases.total, actualWrapper.response[0].cases.total, 'Cases total not matching!');
-        
         System.assertEquals(expectedWrapper.response[0].tests.OneM_pop, actualWrapper.response[0].tests.OneM_pop, 'Tests per one million not matching!');
         System.assertEquals(expectedWrapper.response[0].tests.total, actualWrapper.response[0].tests.total, 'Tests total not matching!');
-        
         System.assertEquals(expectedWrapper.response[0].deaths.OneM_pop, actualWrapper.response[0].deaths.OneM_pop, 'Deaths per one million not matching!');
         System.assertEquals(expectedWrapper.response[0].deaths.new_Z, actualWrapper.response[0].deaths.new_Z, 'Deaths new matching!');
         System.assertEquals(expectedWrapper.response[0].deaths.total, actualWrapper.response[0].deaths.total, 'Deaths total not matching!');

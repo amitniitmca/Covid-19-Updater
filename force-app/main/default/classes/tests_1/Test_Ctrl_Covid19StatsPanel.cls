@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Amit Kumar
  * @group             : 
- * @last modified on  : 06-28-2021
+ * @last modified on  : 06-30-2021
  * @last modified by  : Amit Kumar
  * Modifications Log 
  * Ver   Date         Author       Modification
@@ -18,9 +18,11 @@ public inherited sharing class Test_Ctrl_Covid19StatsPanel {
         accountObject.ShippingCountry = 'Canada';
         INSERT accountObject;
         Id accountId = accountObject.Id;
+        
         Test.startTest();
         Map<String,String> recievingMap = Ctrl_Covid19StatsPanel.getCountryInformation(accountId);
         Test.stopTest();
+        
         System.assertEquals(recievingMap.get('BillingCountry'), accountObject.BillingCountry, 'Billing Country not matching!');
         System.assertEquals(recievingMap.get('ShippingCountry'), accountObject.ShippingCountry, 'Shipping Country not matching!');
     }
@@ -41,10 +43,12 @@ public inherited sharing class Test_Ctrl_Covid19StatsPanel {
     static void testGetCovidStatsFor(){
         String body ='{"get":"statistics","parameters":{"country":"India"},"errors":[],"results":1,"response":[{"continent":"Asia","country":"India","population":1393346055,"cases":{"new":"+863","active":586374,"critical":8944,"recovered":29251029,"1M_pop":"21698","total":30233183},"deaths":{"new":null,"1M_pop":"284","total":395780},"tests":{"1M_pop":"290140","total":404265101},"day":"2021-06-27","time":"2021-06-27T14:15:03+00:00"}]}';
         Covid19StatisticsWrapper expectedWrapper = Covid19StatisticsWrapper.parse(body);
+        
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new Test_Covid19CalloutManager.GetStatisticsMock());
         Map<String,String> mapObject = Ctrl_Covid19StatsPanel.getCovidStatsFor('India');
         Test.stopTest();
+       
         System.assertEquals(mapObject.get('ReportDate'), expectedWrapper.response[0].day, 'Reporting Date not matching !'); 
         System.assertEquals(mapObject.get('NewCases'), expectedWrapper.response[0].cases.new_Z, 'New Cases not matching !');
         System.assertEquals(mapObject.get('ActiveCases'), String.valueOf(expectedWrapper.response[0].cases.active), 'Active Cases not matching !');

@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Amit Kumar
  * @group             : 
- * @last modified on  : 06-22-2021
+ * @last modified on  : 06-30-2021
  * @last modified by  : Amit Kumar
  * Modifications Log 
  * Ver   Date         Author       Modification
@@ -11,7 +11,8 @@
 public inherited sharing class Ctrl_Covid19StatsPanel {
     @AuraEnabled(cacheable=true)
     public static Map<String, String> getCountryInformation(Id accountId){
-        Account accountObject = new AccountsController().getCountyDetails(accountId);
+        Account accountObject = AccountsController.newInstance().getCountyDetails(accountId);
+        // Account accountObject = new AccountsController().getCountyDetails(accountId);
         if(accountObject.BillingCountry == null || accountObject.ShippingCountry == null){
             return null;    
         }
@@ -23,7 +24,7 @@ public inherited sharing class Ctrl_Covid19StatsPanel {
     
     @AuraEnabled(cacheable=true)
     public static Map<String, String> getCovidStatsFor(String country){
-        Covid19StatisticsWrapper covidWrapper = new Covid19CalloutManager().getStatistics(country);
+        Covid19StatisticsWrapper covidWrapper = Covid19CalloutManager.newInstance().getStatistics(country);
         Map<String, String> mapObject = new Map<String, String>();
         mapObject.put('ReportDate', covidWrapper.response[0].day); 
         mapObject.put('NewCases', covidWrapper.response[0].cases.new_Z);
@@ -42,7 +43,7 @@ public inherited sharing class Ctrl_Covid19StatsPanel {
     
     @AuraEnabled(cacheable=true)
     public static List<String> getCountries(){
-        Covid19CountriesWrapper countriesWrapper = new Covid19CalloutManager().getCountries();
+        Covid19CountriesWrapper countriesWrapper =  Covid19CalloutManager.newInstance().getCountries();
         return countriesWrapper.response;
     }
 }

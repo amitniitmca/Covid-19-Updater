@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Amit Kumar
  * @group             : 
- * @last modified on  : 06-28-2021
+ * @last modified on  : 06-30-2021
  * @last modified by  : Amit Kumar
  * Modifications Log 
  * Ver   Date         Author       Modification
@@ -10,6 +10,15 @@
 **/
 
 public inherited sharing class Covid19CalloutManager {
+    @TestVisible
+    private static Covid19CalloutManager instance = null;
+    
+    public static Covid19CalloutManager newInstance(){
+        if(instance == null){
+            instance = new Covid19CalloutManager();    
+        }
+        return instance;
+    }
        
     public Covid19StatisticsWrapper getStatistics(String country){
         String endpoint = 'https://covid-193.p.rapidapi.com/statistics?country='+country;
