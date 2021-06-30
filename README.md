@@ -1,6 +1,13 @@
-# Salesforce DX Project: Next Steps
+# Covid 19 Updater App
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+- Provides latest updates on Covid 
+  - Cases
+  - Tests
+  - Deaths
+- This App provides utility bar to search result for any specific Country,
+- It also provides LWC for Account Object which –
+  - Shows updates according to Account’s Billing and Shipping Address if exists.
+  - Provides interface to search for any country if Billing and Shipping address not set.
 
 ## How Do You Plan to Deploy Your Changes?
 
