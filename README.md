@@ -12,6 +12,6 @@
 ## FFLib Apex Mocks Implementor
 
 This project is also implementing Apex mocks for completing Tests. Infact, in this project all the tests are implemented in two ways.
-- With Apex Mocks
-- Without Apex Mocks
+- With Apex Mocks https://github.com/amitniitmca/Covid-19-Updater/tree/master/force-app/main/default/classes/tests_2
+- Without Apex Mocks https://github.com/amitniitmca/Covid-19-Updater/tree/master/force-app/main/default/classes/tests_1
 
