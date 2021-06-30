@@ -13,5 +13,5 @@
 
 This project is also implementing Apex mocks for completing Tests. Infact, in this project all the tests are implemented in two ways.
 - <a href="https://github.com/amitniitmca/Covid-19-Updater/tree/master/force-app/main/default/classes/tests_2"> With Apex Mocks </a> 
-- Without Apex Mocks https://github.com/amitniitmca/Covid-19-Updater/tree/master/force-app/main/default/classes/tests_1
+- <a href="https://github.com/amitniitmca/Covid-19-Updater/tree/master/force-app/main/default/classes/tests_1"> Without Apex Mocks </a>
 
